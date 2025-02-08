@@ -101,7 +101,7 @@ export default function Home() {
                                                         }}
                                                         bg={
                                                             elementColors[
-                                                            option.value.vision.toLowerCase() as keyof typeof elementColors
+                                                                option.value.vision.toLowerCase() as keyof typeof elementColors
                                                             ]
                                                         }
                                                         className="object-cover rounded-full cursor-pointer hover:scale-105"
