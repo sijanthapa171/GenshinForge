@@ -194,4 +194,3 @@ if __name__ == '__main__':
     # Uncomment these if you want to test a single character
     # ayaka_data = fetch_character_data('ayaka')
     # print(json.dumps(ayaka_data, indent=4))
-    

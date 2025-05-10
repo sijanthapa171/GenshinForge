@@ -47,4 +47,3 @@ def fix_traveler():
 
 if __name__ == '__main__':
     fix_traveler()
-    
