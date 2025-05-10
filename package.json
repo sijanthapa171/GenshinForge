@@ -1,5 +1,5 @@
 {
-    "name": "genshin-forge",
+    "name": "screenshot-impact",
     "version": "0.1.0",
     "private": true,
     "scripts": {
@@ -28,6 +28,8 @@
         "typescript": "5.0.4"
     },
     "devDependencies": {
-        "@types/react": "^18.2.6"
+        "@types/react": "^18.2.6",
+        "prettier": "^2.8.8",
+        "prettier-plugin-tailwindcss": "^0.3.0"
     }
 }
