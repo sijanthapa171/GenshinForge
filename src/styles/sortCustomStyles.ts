@@ -1,5 +1,4 @@
 // Don't worry about this, it's just a custom style for the react-select component
-
 import { StylesConfig } from 'react-select'
 import resolveConfig from 'tailwindcss/resolveConfig'
 import tailwindConfig from '../../tailwind.config.js'
@@ -23,7 +22,7 @@ const color = colors.theme.colors.lightgray[100]
 const backgroundColor = colors.theme.colors.main[700]
 const borderRadius = '6px'
 
-export const sortCustomStyles: StylesConfig<OptionTypeBase, false> = {
+const sortCustomStyles: StylesConfig<OptionTypeBase, false> = {
     control: (provided) => ({
         ...provided,
         backgroundColor,
@@ -61,3 +60,5 @@ export const sortCustomStyles: StylesConfig<OptionTypeBase, false> = {
         borderRadius,
     }),
 }
+
+export default sortCustomStyles

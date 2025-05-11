@@ -1,34 +1,78 @@
-const colors = require('tailwindcss/colors')
+// Generic styles for react-select components
+import { StylesConfig } from 'react-select'
+import resolveConfig from 'tailwindcss/resolveConfig'
+import tailwindConfig from '../../tailwind.config.js'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [
-        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
+interface TailwindConfig {
     theme: {
-        extend: {
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic':
-                    'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-            },
-        },
         colors: {
-            main: {
-                500: '#353535',
-                600: '#303030',
-                700: '#1D1D1D',
-                800: '#171717',
-                900: '#111111',
-                1000: '#0C0C0C',
-            },
-            lightgray: {
-                100: '#C9CACC',
-            },
-            gray: colors.stone,
-        },
-    },
-    plugins: [],
+            [key: string]: Record<string, string>
+        }
+    }
 }
+
+type OptionTypeBase = {
+    value: string
+    label: string
+}
+
+const colors = resolveConfig(tailwindConfig) as TailwindConfig
+
+const color = colors.theme.colors.lightgray[100]
+const backgroundColor = colors.theme.colors.main[700]
+const fontSize = '14px'
+const borderRadius = '6px'
+
+const selectStyles: StylesConfig<OptionTypeBase, false> = {
+    control: (provided) => ({
+        ...provided,
+        backgroundColor,
+        color,
+        fontSize,
+        minHeight: '20px',
+    }),
+    valueContainer: (provided) => ({
+        ...provided,
+        padding: '0 4px',
+    }),
+    indicatorsContainer: (provided) => ({
+        ...provided,
+        height: '30px',
+    }),
+    singleValue: (provided) => ({
+        ...provided,
+        color,
+        fontSize,
+    }),
+    option: (provided, state) => ({
+        ...provided,
+        backgroundColor:
+            state.isFocused || state.isSelected
+                ? colors.theme.colors.main[600]
+                : backgroundColor,
+        color,
+        fontSize,
+    }),
+    input: (provided) => ({
+        ...provided,
+        color,
+    }),
+    menuPortal: (provided) => ({
+        ...provided,
+        zIndex: 999,
+        borderRadius,
+    }),
+    menu: (provided) => ({
+        ...provided,
+        backgroundColor,
+        borderRadius,
+    }),
+    menuList: (provided) => ({
+        ...provided,
+        backgroundColor,
+        padding: 0,
+        borderRadius,
+    }),
+}
+
+export default selectStyles
