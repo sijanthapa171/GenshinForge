@@ -1,3 +1,4 @@
+
 import { NewBaseStat } from '@/types/Character'
 import Image from 'next/image'
 import { useMemo } from 'react'
@@ -6,15 +7,19 @@ import { Column, useTable } from 'react-table'
 interface AttributesTableProps {
     baseStats: NewBaseStat
     initialBaseStats: NewBaseStat
+    displayStats: string[]
 }
 
 const AttributesTable: React.FC<AttributesTableProps> = ({
     baseStats,
     initialBaseStats,
+    displayStats
 }) => {
     const data = useMemo(
         () =>
-            Object.entries(baseStats).map(([key, value]) => {
+        Object.entries(baseStats)
+        .filter(([key]) => displayStats.includes(key))
+        .map(([key, value]) => {
                 let formattedValue
                 let formattedInitialValue
                 let difference
@@ -152,3 +157,4 @@ const AttributesTable: React.FC<AttributesTableProps> = ({
 }
 
 export default AttributesTable
+
