@@ -47,6 +47,7 @@ export interface Character {
 export interface Bonus {
     name: string
     description: string
+    icon: string
     effect: (
         baseStats: NewBaseStat,
         currentStacks?: number,
@@ -54,4 +55,26 @@ export interface Bonus {
     ) => NewBaseStat
     maxStacks?: number
     currentStacks?: number
+}
+
+export interface AbilityScaling {
+    [characterName: string]: {
+        [skillName: string]: {
+            [aspectName: string]: AbilityScalingData
+        }
+    }
+}
+
+export interface AbilityScalingData {
+    formulaType: FormulaType
+    baseStat: string
+    additiveBonusStat?: string | string[]
+    multiplicativeBonusStat?: string | string[]
+}
+
+export enum FormulaType {
+    DamageFormula,
+    GenericFormulaWithScaling,
+    GenericFormulaWithoutScaling,
+    ElementalReactionFormula,
 }
