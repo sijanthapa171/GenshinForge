@@ -65,12 +65,16 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ damageResults }) => {
                     'outputValue' in aspect.damage &&
                     'outputType' in aspect.damage
                 ) {
+                    const outputValue =
+                        aspect.damage.outputType === FormulaOutputType.Time
+                            ? `${aspect.damage.outputValue?.toFixed(1)}s`
+                            : aspect.damage.outputValue
+                            ? Math.round(aspect.damage.outputValue)
+                            : 0
                     // Handle non-damage output
                     result.push({
                         name: aspect.aspectName,
-                        average: aspect.damage.outputValue
-                            ? Math.round(aspect.damage.outputValue)
-                            : 0,
+                        average: outputValue,
                         outputType: aspect.damage.outputType,
                     })
                 } else {
@@ -105,15 +109,13 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ damageResults }) => {
                         {headerGroup.headers.map((column) => (
                             <th
                                 key={column.id}
-                                className="border-b border-main-700 pb-2 font-bold"
-                                style={{
-                                    width:
-                                        column.id === 'nonCrit' ||
-                                        column.id === 'crit' ||
-                                        column.id === 'average'
-                                            ? '80px'
-                                            : undefined,
-                                }}
+                                className={`border-b border-main-700 pb-2 font-bold ${
+                                    column.id === 'nonCrit' ||
+                                    column.id === 'crit' ||
+                                    column.id === 'average'
+                                        ? 'w-[80px]'
+                                        : ''
+                                }`}
                             >
                                 {column.render('Header')}
                             </th>
@@ -126,7 +128,6 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ damageResults }) => {
                     prepareRow(row)
                     return (
                         <tr key={index}>
-                            {/* Merge the cells in rows dedicated to a skill name using the colSpan attribute */}
                             {row.original.nonCrit === '' ? (
                                 <td
                                     colSpan={4}
@@ -155,7 +156,8 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ damageResults }) => {
                                                 row.original.outputType ===
                                                     FormulaOutputType.Healing
                                                     ? '#98db1a'
-                                                    : cell.column.id !== 'name' &&
+                                                    : cell.column.id !==
+                                                          'name' &&
                                                       row.original.damageType &&
                                                       elementColors[
                                                           row.original.damageType.toLowerCase() as keyof typeof elementColors
