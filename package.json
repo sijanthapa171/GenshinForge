@@ -37,6 +37,6 @@
         "@types/react-table": "^7.7.14",
         "prettier": "^2.8.8",
         "prettier-plugin-tailwindcss": "^0.3.0",
-        "semantic-release": "^21.0.5"
+        "semantic-release": "^24.2.5"
     }
 }
