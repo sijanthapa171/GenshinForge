@@ -12,8 +12,7 @@ const constellationBonuses: Record<string, Bonus[]> = {
             ),
             icon: '/images/skill-icons/constellations/hu-tao-constellation1.png',
             effect: (baseStats) => {
-                // TODO: Broken, implement later
-                // baseStats['Charged Attack Stamina Cost Multiplier'] = -100
+                baseStats['Crimson Bouquet Stamina Reduction'] = -100
                 return baseStats
             },
         },
