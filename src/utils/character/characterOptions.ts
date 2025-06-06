@@ -26,4 +26,3 @@ export const handleConstellationChange =
     (setConstellation: (value: number) => void) => (value: string | number) => {
         setConstellation(Number(value))
     }
-    
