@@ -1,3 +1,4 @@
+
 import { AbilityScaling, FormulaType, FormulaOutputType } from '@/types/Character'
 
 const abilityScalings: AbilityScaling = {
@@ -316,6 +317,7 @@ const abilityScalings: AbilityScaling = {
             },
             'Tri-Karma Purification Trigger Interval': {
                 formulaType: FormulaType.GenericFormulaWithoutScaling,
+                additiveBonusStat: 'Tri-Karma Purification Trigger Interval',
                 outputType: FormulaOutputType.Time,
             },
             'Seed of Skandha Duration': {
@@ -334,20 +336,33 @@ const abilityScalings: AbilityScaling = {
             },
         },
         'Illusory Heart': {
-            'Pyro: DMG Bonus': {
+            'Pyro: DMG Bonus (1 Character)': {
                 formulaType: FormulaType.GenericFormulaWithoutScaling,
                 outputType: FormulaOutputType.Percentage,
             },
-            'Electro: Trigger Interval Decrease': {
+            'Pyro: DMG Bonus (2 Characters)': {
+                formulaType: FormulaType.GenericFormulaWithoutScaling,
+                outputType: FormulaOutputType.Percentage,
+            },
+            'Electro: Trigger Interval Decrease (1 Character)': {
                 formulaType: FormulaType.GenericFormulaWithoutScaling,
                 outputType: FormulaOutputType.Time,
             },
-            'Hydro: Duration Extension': {
+            'Electro: Trigger Interval Decrease (2 Characters)': {
+                formulaType: FormulaType.GenericFormulaWithoutScaling,
+                outputType: FormulaOutputType.Time,
+            },
+            'Hydro: Duration Extension (1 Character)': {
+                formulaType: FormulaType.GenericFormulaWithoutScaling,
+                outputType: FormulaOutputType.Time,
+            },
+            'Hydro: Duration Extension (2 Characters)': {
                 formulaType: FormulaType.GenericFormulaWithoutScaling,
                 outputType: FormulaOutputType.Time,
             },
             'Base Duration': {
                 formulaType: FormulaType.GenericFormulaWithoutScaling,
+                additiveBonusStat: 'Shrine of Maya Duration Bonus',
                 outputType: FormulaOutputType.Time,
             },
             CD: {
@@ -364,3 +379,4 @@ const abilityScalings: AbilityScaling = {
 }
 
 export default abilityScalings
+

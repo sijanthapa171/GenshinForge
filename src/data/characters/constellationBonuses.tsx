@@ -1,3 +1,4 @@
+
 import { Bonus } from '@/types/Character'
 
 const constellationBonuses: Record<string, Bonus[]> = {
@@ -15,7 +16,8 @@ const constellationBonuses: Record<string, Bonus[]> = {
                 if (!initialBaseStats) return baseStats
                 const newBaseStats = { ...baseStats }
                 newBaseStats['Crimson Bouquet Stamina Reduction'] =
-                    (initialBaseStats['Crimson Bouquet Stamina Reduction'] || 0) - 100
+                    (initialBaseStats['Crimson Bouquet Stamina Reduction'] || 0) -
+                    100
                 return newBaseStats
             },
         },
@@ -37,7 +39,7 @@ const constellationBonuses: Record<string, Bonus[]> = {
                     initialBaseStats['Elemental Skill Additive Bonus'] + 10
                 return newBaseStats
             },
-            dependencies: ['HP']
+            dependencies: ['HP'],
         },
         {
             name: 'Lingering Carmine',
