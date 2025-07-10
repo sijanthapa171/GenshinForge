@@ -1,4 +1,3 @@
-
 import { CharacterBonusToggle } from '@/components'
 import { characterBonuses } from '@/data'
 import { Bonus, Character } from '@/types/Character'
@@ -85,7 +84,7 @@ const CharacterBonuses = ({
                 <Fragment>
                     <button
                         onClick={handleCollapseClick}
-                        className="w-full rounded-md bg-main-700 py-2"
+                        className="w-full rounded-md bg-secondary/25 py-2"
                     >
                         {isHiddenCollapsed ? (
                             <Fragment>
