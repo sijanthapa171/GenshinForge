@@ -1,4 +1,3 @@
-
 import { TalentScaling, Bonus, Character } from '@/interfaces/Character'
 
 const talentScalings: TalentScaling = {
